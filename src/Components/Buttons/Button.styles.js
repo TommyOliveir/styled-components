@@ -3,7 +3,7 @@ import styled, { keyframes } from "styled-components";
 export const StyledButton = styled.button`
   width: 200px;
   height: 50px;
-  box-shadow: inset 0px 1px 0px 0px green;
+  /* box-shadow: inset 0px 1px 0px 0px green; */
   /* background-color: ${(props) => props.backgroundColor}; */
   background-color: ${(props) =>
     props.variant === "outline" ? "#FFF" : "green"};
@@ -17,7 +17,7 @@ export const StyledButton = styled.button`
   font-weight: bold;
   padding: 6px 24px;
   text-decoration: none;
-  text-shadow: 0px 1px 0px green;
+ 
 
   &:hover {
     background-color: ${(props) =>
@@ -54,5 +54,14 @@ to {
 export const AnimatedLogo = styled.img`
   height: 40vmin;
   pointer-events: none;
-  animation:${rotate} infinite 20s linear;
+  animation: ${rotate} infinite 20s linear;
+`;
+
+export const Darkbutton = styled(StyledButton)`
+  border: 2px solid ${(props) => props.theme.dark.primary};
+  background-color: ${(props) => props.theme.dark.primary};
+  color: ${(props) => props.theme.dark.text};
+  &:hover {
+    color: ${(props) => props.theme.light.text};
+  }
 `;
