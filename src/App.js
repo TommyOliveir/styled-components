@@ -6,7 +6,10 @@ import { AnimatedLogo, Darkbutoon, Darkbutton } from "./Components/Buttons/Butto
 import logo from "./logo.svg";
 import sun from "./tomimages/sun.png";
 import earth from "./tomimages/earth.png";
-import { ThemeProvider } from "styled-components";
+import { ThemeProvider, createGlobalStyle } from "styled-components";
+
+
+
 
 const theme = {
   dark: {
@@ -17,12 +20,22 @@ const theme = {
     primary: "#fff",
     text: "#000",
   },
+  fontFamily: 'Segoe UI'
 };
+
+const GlobalStyle = createGlobalStyle`
+button {
+  font-family: ${(props) => props.theme.fontFamily};
+}
+`
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
+      <GlobalStyle/>
       <div className="App">
+       
+     
         <AnimatedLogo src={logo} />
         <AnimatedLogo src={sun} />
         <AnimatedLogo src={earth} />
@@ -33,6 +46,7 @@ function App() {
         <SubmitButton>submit</SubmitButton>
         <Darkbutton>Dark Theme</Darkbutton>
       </div>
+      
     </ThemeProvider>
   );
 }
